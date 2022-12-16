@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import AddPdr from "./pages/AddPdr";
 import IndexPage from "./pages/IndexPage";
 import Contact from "./pages/Contact";
+import MyMaps from "./pages/MyMaps";
 
 const AppRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const AppRoutes = () => {
         <Route exact path="/" component={IndexPage} />
         <Route exact path="/add-pdr" component={AddPdr} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/maps" component={MyMaps} />
       </Switch>
     </Router>
   );

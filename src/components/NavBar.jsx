@@ -30,6 +30,11 @@ const NavBar = () => {
               Contact
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/maps" className="nav-link">
+              Maps
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
