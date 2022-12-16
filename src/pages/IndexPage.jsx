@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getPdrsAction } from "../redux/actions/pdrActions";
 
 const IndexPage = () => {
-  const [newPdrs, setNewPdrs] = useState([]);
+  const dispatch = useDispatch();
+
+  const pdrsState = useSelector((state) => state.getPdrsReducer);
+  const { pdrs, loading, error } = pdrsState;
 
   useEffect(() => {
-    axios.get("https://pdrs-api.onrender.com/api/pdrs").then((res) => {
-      const { pdrs } = res.data;
-      console.log(pdrs);
-      setNewPdrs(pdrs);
-    });
-  }, []);
+    dispatch(getPdrsAction());
+  }, [dispatch]);
 
-  return <div>{JSON.stringify(newPdrs)}</div>;
+  return <div>{JSON.stringify(pdrs)}</div>;
 };
 
 export default IndexPage;
