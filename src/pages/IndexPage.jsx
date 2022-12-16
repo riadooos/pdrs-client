@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const IndexPage = () => {
-  return (
-    <div>IndexPage</div>
-  )
-}
+  const [newPdrs, setNewPdrs] = useState([]);
 
-export default IndexPage
+  useEffect(() => {
+    axios.get("https://pdrs-api.onrender.com/api/pdrs").then((res) => {
+      const { pdrs } = res.data;
+      console.log(pdrs);
+      setNewPdrs(pdrs);
+    });
+  }, []);
+
+  return <div>{JSON.stringify(newPdrs)}</div>;
+};
+
+export default IndexPage;
