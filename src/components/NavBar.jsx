@@ -22,7 +22,12 @@ const NavBar = () => {
           </li>
           <li className="nav-item">
             <Link to="/add-pdr" className="nav-link">
-              ADD
+              Add
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact" className="nav-link">
+              Contact
             </Link>
           </li>
         </ul>
