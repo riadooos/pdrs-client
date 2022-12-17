@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import PdrShow from "../components/PdrShow";
 import { getPdrsAction } from "../redux/actions/pdrActions";
+import Error from "../components/Error";
+import Loading from "../components/Loading";
 
 const IndexPage = () => {
   const dispatch = useDispatch();
@@ -12,7 +15,19 @@ const IndexPage = () => {
     dispatch(getPdrsAction());
   }, [dispatch]);
 
-  return <div>{JSON.stringify(pdrs)}</div>;
+  return (
+    <div className="d-flex flex-wrap">
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Error error="Something went wrong" />
+      ) : (
+        pdrs.map((pdr, index) => {
+          return <PdrShow pdr={pdr} key={index} />;
+        })
+      )}
+    </div>
+  );
 };
 
 export default IndexPage;
