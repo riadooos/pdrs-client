@@ -1,10 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import { getPdrsReducer } from "./reducers/pdrReducers";
+import { getPdrsReducer, addPdrReducer } from "./reducers/pdrReducers";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const finalReducer = combineReducers({
   getPdrsReducer: getPdrsReducer,
+  addPdrReducer: addPdrReducer,
 });
 
 const composeEnhancers = composeWithDevTools({});

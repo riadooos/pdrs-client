@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.addBloc{
+  width: 50%;
+  margin: auto;
+}
+
+.addBloc input{
+  margin-bottom: 10px;
+}
